@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30523.141
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GimcheonLibrary.Web", "GimcheonLibrary.Web\GimcheonLibrary.Web.csproj", "{96F0579E-1562-4408-B859-285FE27D6702}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GimcheonLibrary.DataAccess", "GimcheonLibrary.DataAccess\GimcheonLibrary.DataAccess.csproj", "{919F3F99-FD87-43AC-B9ED-2719314E3227}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{96F0579E-1562-4408-B859-285FE27D6702}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96F0579E-1562-4408-B859-285FE27D6702}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96F0579E-1562-4408-B859-285FE27D6702}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96F0579E-1562-4408-B859-285FE27D6702}.Release|Any CPU.Build.0 = Release|Any CPU
+		{919F3F99-FD87-43AC-B9ED-2719314E3227}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{919F3F99-FD87-43AC-B9ED-2719314E3227}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{919F3F99-FD87-43AC-B9ED-2719314E3227}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{919F3F99-FD87-43AC-B9ED-2719314E3227}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FD0B1887-A7AE-46C0-B3FB-E8FAF30FC182}
+	EndGlobalSection
+EndGlobal
