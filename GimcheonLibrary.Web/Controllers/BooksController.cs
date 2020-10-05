@@ -27,9 +27,19 @@ namespace GimcheonLibrary.Web.Controllers
         }
 
         // GET: BookController/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(int? id)
         {
-            return View();
+            if (id == null)
+            {
+                return NotFound();
+            }
+            Book book = _bookRepository.FindById(id.Value);
+            if (book == null)
+            {
+                return NotFound();
+            }
+
+            return View(book);
         }
 
         // GET: BookController/Create

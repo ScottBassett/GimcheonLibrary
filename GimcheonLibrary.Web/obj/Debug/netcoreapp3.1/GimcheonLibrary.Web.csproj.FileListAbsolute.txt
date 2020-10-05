@@ -172,3 +172,4 @@ C:\Training\Projects\GimcheonLibrary\GimcheonLibrary.Web\obj\Debug\netcoreapp3.1
 C:\Training\Projects\GimcheonLibrary\GimcheonLibrary.Web\obj\Debug\netcoreapp3.1\Razor\Views\Books\Create.cshtml.g.cs
 C:\Training\Projects\GimcheonLibrary\GimcheonLibrary.Web\obj\Debug\netcoreapp3.1\Razor\Views\Books\Edit.cshtml.g.cs
 C:\Training\Projects\GimcheonLibrary\GimcheonLibrary.Web\obj\Debug\netcoreapp3.1\Razor\Views\Books\Delete.cshtml.g.cs
+C:\Training\Projects\GimcheonLibrary\GimcheonLibrary.Web\obj\Debug\netcoreapp3.1\Razor\Views\Books\Details.cshtml.g.cs
