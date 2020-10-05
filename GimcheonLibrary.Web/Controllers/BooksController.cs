@@ -56,6 +56,8 @@ namespace GimcheonLibrary.Web.Controllers
             if (ModelState.IsValid)
             {
                 _bookRepository.Add(book);
+               // _bookRepository.FindById(id.Value);
+                // return RedirectToAction($"Details/{book.Id}");
                 return RedirectToAction("Index");
             }
             
