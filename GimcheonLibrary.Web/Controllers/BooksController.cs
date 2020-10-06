@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using GimcheonLibrary.DataAccess.Models;
+﻿using GimcheonLibrary.DataAccess.Models;
 using GimcheonLibrary.DataAccess.Repository;
-using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
 namespace GimcheonLibrary.Web.Controllers
 {
+    [Authorize]
     public class BooksController : Controller
     {
         private readonly BookRepository _bookRepository;
@@ -21,13 +17,15 @@ namespace GimcheonLibrary.Web.Controllers
         }
 
         // GET: BookController
+        [AllowAnonymous]
         public IActionResult Index()
         {
             return View(_bookRepository.FindAll());
         }
 
         // GET: BookController/Details/5
-        public ActionResult Details(int? id)
+        [AllowAnonymous]
+        public IActionResult Details(int? id)
         {
             if (id == null)
             {
@@ -43,7 +41,7 @@ namespace GimcheonLibrary.Web.Controllers
         }
 
         // GET: BookController/Create
-        public ActionResult Create()
+        public IActionResult Create()
         {
             return View();
         }
@@ -51,7 +49,7 @@ namespace GimcheonLibrary.Web.Controllers
         // POST: BookController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Book book)
+        public IActionResult Create(Book book)
         {
             if (ModelState.IsValid)
             {
@@ -66,7 +64,7 @@ namespace GimcheonLibrary.Web.Controllers
         }
 
         // GET: BookController/Edit/5
-        public ActionResult Edit(int? id)
+        public IActionResult Edit(int? id)
         {
             if (id == null)
             {
@@ -84,7 +82,7 @@ namespace GimcheonLibrary.Web.Controllers
         // POST: BookController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Book book)
+        public IActionResult Edit(Book book)
         {
             if (ModelState.IsValid)
             {
@@ -96,7 +94,7 @@ namespace GimcheonLibrary.Web.Controllers
         }
 
         // GET: BookController/Delete/5
-        public ActionResult Delete(int? id)
+        public IActionResult Delete(int? id)
         {
             if (id == null)
             {
@@ -109,7 +107,7 @@ namespace GimcheonLibrary.Web.Controllers
         // POST: BookController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id)
+        public IActionResult Delete(int id)
         {
             try
             {

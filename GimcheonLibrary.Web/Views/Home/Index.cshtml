@@ -2,10 +2,20 @@
     ViewData["Title"] = "Home Page";
 }
 
+<div class="text-center">
+    <h1 class="display-4">Welcome to Gimcheon Library!</h1>
+</div>
+
+
+
 <div>
     <AuthorizeView Roles="Admin">
         <Authorized>
             <Admin />
+            <a class="btn btn-primary" asp-controller="Books" asp-action="Create">Add Book</a>
+            <br />
+            <br />
+            <a class="btn btn-primary" asp-controller="Books" asp-action="Index">View all books</a>
         </Authorized>
     </AuthorizeView>
 
