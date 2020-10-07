@@ -60,5 +60,14 @@ namespace GimcheonLibrary.DataAccess.Repository
                 dbConnection.Execute("DELETE FROM books WHERE id=@Id", new { id });
             }
         }
+
+        public IEnumerable<Book> FindByAuthor()
+        {
+            using (IDbConnection dbConnection = Connection)
+            {
+                dbConnection.Open();
+                return dbConnection.Query<Book>("SELECT title from books JOIN authors ON books.author = authors.name WHERE books.author = 'Scott Bassett'");
+            }
+        }
     }
 }

@@ -9,10 +9,12 @@ namespace GimcheonLibrary.Web.Controllers
     public class AuthorsController : Controller
     {
         private readonly AuthorRepository _authorRepository;
+        private readonly BookRepository _bookRepository;
 
         public AuthorsController(IConfiguration configuration)
         {
             _authorRepository = new AuthorRepository(configuration);
+            _bookRepository = new BookRepository(configuration);
         }
 
         // GET: AuthorsController

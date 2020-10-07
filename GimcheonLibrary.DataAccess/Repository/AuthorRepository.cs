@@ -23,7 +23,7 @@ namespace GimcheonLibrary.DataAccess.Repository
             using (IDbConnection dbConnection = Connection)
             {
                 dbConnection.Open();
-                dbConnection.Execute("INSERT INTO authors (name,about,books) VALUES (@,@About,@Books)", item);
+                dbConnection.Execute("INSERT INTO authors (name,about,books) VALUES (@Name,@About,@Books)", item);
             }
         }
 

@@ -33,7 +33,7 @@
                 <a asp-action="Details" asp-route-id="@book.Id">@Html.DisplayFor(modelItem => book.Title)</a>
             </td>
             <td>
-                @Html.DisplayFor(modelItem => book.Author)
+                <a asp-controller="Authors" asp-action="Details" asp-route-id="@book.Author"> @Html.DisplayFor(modelItem => book.Author) </a>
             </td>
             <td>
                 @Html.DisplayFor(modelItem => book.AvailableCopies)

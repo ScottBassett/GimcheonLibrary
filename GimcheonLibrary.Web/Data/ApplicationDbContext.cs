@@ -14,5 +14,6 @@ namespace GimcheonLibrary.Web.Data
         {
         }
         public DbSet<GimcheonLibrary.DataAccess.Models.Book> Book { get; set; }
+        public DbSet<GimcheonLibrary.DataAccess.Models.Author> Author { get; set; }
     }
 }
