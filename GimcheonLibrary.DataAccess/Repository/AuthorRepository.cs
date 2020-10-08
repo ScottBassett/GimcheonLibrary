@@ -32,7 +32,7 @@ namespace GimcheonLibrary.DataAccess.Repository
             using (IDbConnection dbConnection = Connection)
             {
                 dbConnection.Open();
-               return dbConnection.Query<Author>("SELECT * FROM authors");
+                return dbConnection.Query<Author>("SELECT * FROM authors");
             }
         }
 
@@ -42,6 +42,21 @@ namespace GimcheonLibrary.DataAccess.Repository
             {
                 dbConnection.Open();
                 return dbConnection.Query<Author>("SELECT * FROM authors WHERE id = @Id", new { id }).FirstOrDefault();
+            }
+        }
+
+        public IEnumerable<Book> FindByAuthor(int authorId)
+        {
+           const string sql = @"SELECT books.id, title, authors.id, description, ""totalCopies"", ""availableCopies"", ""imageUrl"" 
+                              from books INNER JOIN authors ON books.author = authors.name WHERE authors.id = @authorId";
+
+            using (IDbConnection dbConnection = Connection)
+            {
+                dbConnection.Open();
+
+                var booksByAuthor = dbConnection.Query<Book>(sql, new { authorId });
+
+                return booksByAuthor;
             }
         }
 

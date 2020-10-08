@@ -1,4 +1,5 @@
-﻿using GimcheonLibrary.DataAccess.Models;
+﻿using System.Collections.Generic;
+using GimcheonLibrary.DataAccess.Models;
 using GimcheonLibrary.DataAccess.Repository;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -9,12 +10,10 @@ namespace GimcheonLibrary.Web.Controllers
     public class AuthorsController : Controller
     {
         private readonly AuthorRepository _authorRepository;
-        private readonly BookRepository _bookRepository;
 
         public AuthorsController(IConfiguration configuration)
         {
             _authorRepository = new AuthorRepository(configuration);
-            _bookRepository = new BookRepository(configuration);
         }
 
         // GET: AuthorsController
@@ -24,19 +23,17 @@ namespace GimcheonLibrary.Web.Controllers
         }
 
         // GET: AuthorsController/Details/5
-        public IActionResult Details(int? id)
+        public IActionResult Details(int id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-            Author author = _authorRepository.FindById(id.Value);
+            var author = _authorRepository.FindById(id);
             if (author == null)
             {
                 return NotFound();
             }
 
-            return View(author);
+            var authorsBooks = _authorRepository.FindByAuthor(id);
+
+            return View(authorsBooks);
         }
 
         // GET: AuthorsController/Create
