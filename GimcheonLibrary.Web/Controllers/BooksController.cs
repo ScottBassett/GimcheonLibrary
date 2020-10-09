@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using GimcheonLibrary.DataAccess.Models;
 using GimcheonLibrary.DataAccess.Repository;
+using GimcheonLibrary.Web.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -11,19 +12,21 @@ namespace GimcheonLibrary.Web.Controllers
     public class BooksController : Controller
     {
         private readonly BookRepository _bookRepository;
+        private readonly AuthorRepository _authorRepository;
 
         public BooksController(IConfiguration configuration)
         {
             _bookRepository = new BookRepository(configuration);
+            _authorRepository = new AuthorRepository(configuration);
         }
-
-        
 
         // GET: BookController
         [AllowAnonymous]
         public IActionResult Index()
         {
-            return View(_bookRepository.FindAll());
+            var books = _bookRepository.FindAll();
+
+            return View(books);
         }
 
         // GET: BookController/Details/5

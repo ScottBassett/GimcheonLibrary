@@ -1,43 +1,37 @@
-﻿@using GimcheonLibrary.DataAccess.Models
-@model IEnumerable<GimcheonLibrary.DataAccess.Models.Book>
+﻿@model GimcheonLibrary.Web.Models.AuthorBooksViewModel
 
 @{
     ViewData["Title"] = "Details";
 }
 
-<h1>@*@Html.DisplayFor(model => model.Name)*@</h1>
+<h1>@Html.DisplayFor(model => model.Author.Name)</h1>
 
 <div>
-    @*<hr />
+    <hr />
     <dl class="row">
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.About)
+            @Html.DisplayNameFor(model => model.Author.About)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.About)
+            @Html.DisplayFor(model => model.Author.About)
         </dd>
     </dl>
-    <h6>List of books to follow...</h6>*@
+
 
     <table class="table">
-            <tr>
-                <th>
-                    @Html.DisplayNameFor( book => book.Title)
-                </th>
 
-             </tr>
-
-            @foreach (var book in Model)
+            @foreach (var book in Model.Books)
             {
                 <tr>
                     <td>
-                        <a asp-action="Details" asp-route-id="@book.Author">@Html.DisplayFor(modelItem => book.Title)</a>
+                        <a asp-controller="Books" asp-action="Details" asp-route-id="@book.Id">@Html.DisplayFor(modelItem => book.Title)</a>
                     </td>
                 </tr>
             }
         </table>
 </div>
 <div>
-   @* <a asp-action="Edit" asp-route-id="@Book.Id">Edit</a> |*@
-    <a asp-action="Index">Back to List</a>
+    @* <a asp-action="Edit" asp-route-id="@Book.Id">Edit</a> |*@
+    <a asp-action="Index">Back to Authors</a> |
+    <a asp-controller="Books" asp-action="Index">Back to Books</a>
 </div>

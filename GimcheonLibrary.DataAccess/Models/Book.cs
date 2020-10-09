@@ -13,6 +13,8 @@ namespace GimcheonLibrary.DataAccess.Models
         [Required]
         public string Author { get; set; }
 
+        public int AuthorId { get; set; }
+
         [Required]
         public string Description { get; set; }
 

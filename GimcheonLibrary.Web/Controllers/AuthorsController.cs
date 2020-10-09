@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using GimcheonLibrary.DataAccess.Models;
 using GimcheonLibrary.DataAccess.Repository;
+using GimcheonLibrary.Web.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -32,8 +33,14 @@ namespace GimcheonLibrary.Web.Controllers
             }
 
             var authorsBooks = _authorRepository.FindByAuthor(id);
+            var authorBooksViewModel = new AuthorBooksViewModel {Author = author, Books = authorsBooks};
 
-            return View(authorsBooks);
+            return View(authorBooksViewModel);
+        }
+
+        public IActionResult Books()
+        {
+            return View();
         }
 
         // GET: AuthorsController/Create

@@ -14,5 +14,9 @@ namespace GimcheonLibrary.DataAccess.Models
         public string About { get; set; }
 
         public List<Book> Books { get; set; }
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }

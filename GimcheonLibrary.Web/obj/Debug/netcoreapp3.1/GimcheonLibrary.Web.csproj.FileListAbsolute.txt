@@ -176,3 +176,5 @@ C:\Training\Projects\GimcheonLibrary\GimcheonLibrary.Web\obj\Debug\netcoreapp3.1
 C:\Training\Projects\GimcheonLibrary\GimcheonLibrary.Web\obj\Debug\netcoreapp3.1\Razor\Views\Authors\Index.cshtml.g.cs
 C:\Training\Projects\GimcheonLibrary\GimcheonLibrary.Web\obj\Debug\netcoreapp3.1\Razor\Views\Authors\Details.cshtml.g.cs
 C:\Training\Projects\GimcheonLibrary\GimcheonLibrary.Web\obj\Debug\netcoreapp3.1\Razor\Views\Authors\Create.cshtml.g.cs
+C:\Training\Projects\GimcheonLibrary\GimcheonLibrary.Web\obj\Debug\netcoreapp3.1\Razor\Views\Authors\Books.cshtml.g.cs
+C:\Training\Projects\GimcheonLibrary\GimcheonLibrary.Web\obj\Debug\netcoreapp3.1\Razor\Views\Authors\Edit.cshtml.g.cs

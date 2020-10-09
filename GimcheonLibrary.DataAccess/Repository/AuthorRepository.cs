@@ -15,34 +15,28 @@ namespace GimcheonLibrary.DataAccess.Repository
         {
             _connectionString = configuration.GetConnectionString("PostgresConnection");
         }
-        internal IDbConnection Connection => new NpgsqlConnection(_connectionString);
 
+        internal IDbConnection Connection => new NpgsqlConnection(_connectionString);
 
         public void Add(Author item)
         {
-            using (IDbConnection dbConnection = Connection)
-            {
-                dbConnection.Open();
-                dbConnection.Execute("INSERT INTO authors (name,about,books) VALUES (@Name,@About,@Books)", item);
-            }
+            using IDbConnection dbConnection = Connection;
+            dbConnection.Open();
+            dbConnection.Execute("INSERT INTO authors (name,about,books) VALUES (@Name,@About,@Books)", item);
         }
 
         public IEnumerable<Author> FindAll()
         {
-            using (IDbConnection dbConnection = Connection)
-            {
-                dbConnection.Open();
-                return dbConnection.Query<Author>("SELECT * FROM authors");
-            }
+            using IDbConnection dbConnection = Connection;
+            dbConnection.Open();
+            return dbConnection.Query<Author>("SELECT * FROM authors");
         }
 
         public Author FindById(int id)
         {
-            using (IDbConnection dbConnection = Connection)
-            {
-                dbConnection.Open();
-                return dbConnection.Query<Author>("SELECT * FROM authors WHERE id = @Id", new { id }).FirstOrDefault();
-            }
+            using IDbConnection dbConnection = Connection;
+            dbConnection.Open();
+            return dbConnection.Query<Author>("SELECT * FROM authors WHERE id = @Id", new { id }).FirstOrDefault();
         }
 
         public IEnumerable<Book> FindByAuthor(int authorId)
@@ -50,32 +44,26 @@ namespace GimcheonLibrary.DataAccess.Repository
            const string sql = @"SELECT books.id, title, authors.id, description, ""totalCopies"", ""availableCopies"", ""imageUrl"" 
                               from books INNER JOIN authors ON books.author = authors.name WHERE authors.id = @authorId";
 
-            using (IDbConnection dbConnection = Connection)
-            {
-                dbConnection.Open();
+           using IDbConnection dbConnection = Connection;
+           dbConnection.Open();
 
-                var booksByAuthor = dbConnection.Query<Book>(sql, new { authorId });
+           var booksByAuthor = dbConnection.Query<Book>(sql, new { authorId });
 
-                return booksByAuthor;
-            }
+           return booksByAuthor;
         }
 
         public void Update(Author item)
         {
-            using (IDbConnection dbConnection = Connection)
-            {
-                dbConnection.Open();
-                dbConnection.Query("UPDATE authors SET name = @Name, about = @About, books = @Books, WHERE id = @Id", item);
-            }
+            using IDbConnection dbConnection = Connection;
+            dbConnection.Open();
+            dbConnection.Query("UPDATE authors SET name = @Name, about = @About, books = @Books, WHERE id = @Id", item);
         }
 
         public void Remove(int id)
         {
-            using (IDbConnection dbConnection = Connection)
-            {
-                dbConnection.Open();
-                dbConnection.Execute("DELETE FROM books WHERE id=@Id", new { id });
-            }
+            using IDbConnection dbConnection = Connection;
+            dbConnection.Open();
+            dbConnection.Execute("DELETE FROM books WHERE id=@Id", new { id });
         }
     }
 }
